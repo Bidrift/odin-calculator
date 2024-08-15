@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+    <script src="./script.js" defer></script>
     <title>Odin Calculator</title>
 </head>
 <body>
+    <div class="aesthetic-circle"></div>
     <section class="calculator-container">
         <div class="calculator-display">
             123
@@ -33,7 +39,7 @@
                     <button id="three-btn" class="calculator-button black">3</button>
                 </div>
                 <div class="row">
-                    <button id="zero-btn" class="calculator-button black">0</button>
+                    <button id="zero-btn" class="calculator-button black important-button">0</button>
                     <button id="dot-btn" class="calculator-button black">.</button>
                 </div>
             </div>
@@ -41,7 +47,7 @@
                 <button id="mult-btn" class="operator-button calculator-button blue">x</button>
                 <button id="sub-btn" class="operator-button calculator-button blue">-</button>
                 <button id="add-btn" class="operator-button calculator-button blue">+</button>
-                <button id="res-btn" class="calculator-button blue">=</button>
+                <button id="res-btn" class="calculator-button blue important-button">=</button>
             </div>
         </div>
     </section>
