@@ -3,6 +3,11 @@
     font-weight: 500;
 }
 
+p {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     box-sizing: border-box;
     background-color: #B0DBFC;
@@ -42,8 +47,15 @@ body {
     color: #FFF;
     font-size: 48px;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.warning-display {
+    filter: brightness(50%);
+    visibility: hidden;
+    font-size: 18px;
 }
 
 .calculator-board {
