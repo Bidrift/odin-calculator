@@ -29,6 +29,8 @@ const nbBtns = document.querySelectorAll(".number-button");
 const opBtns = document.querySelectorAll(".operator-button");
 const resBtn = document.querySelector("#res-btn");
 const clrBtn = document.querySelector("#clr-btn");
+const decBtn = document.querySelector("#dot-btn");
+const bckBtn = document.querySelector("#back-btn");
 
 const display = document.querySelector(".number-display");
 const warningDiv = document.querySelector(".warning-display");
@@ -52,7 +54,15 @@ function mergeOperands() {
 
 function addToDisplay(textToAdd) {
     clearWarning();
+    if (display.textContent === "0.") {
+        display.textContent += textToAdd;
+        return;
+    }
     if (display.textContent === "0" || secondOperand === null) {
+        // To avoid floating point innacuracy
+        if (typeof textToAdd === 'number') {
+            textToAdd = Math.round(textToAdd*10000000)/10000000;
+        }
         display.textContent = textToAdd.toString().slice(0, 9);
         return
     }
@@ -102,4 +112,24 @@ clrBtn.addEventListener("click", (e) => {
     operator = null;
     display.textContent = "0";
     clearWarning();
+})
+
+decBtn.addEventListener("click", (e) => {
+    if (display.textContent === "0" || secondOperand === null) {
+        addToDisplay("0.");
+        secondOperand = 0;
+    }
+    if (!display.textContent.includes(".")) {
+        addToDisplay(".");
+    }
+})
+
+bckBtn.addEventListener("click", (e) => {
+    if (!blocked) {
+        if (!(secondOperand === null) && !(display.textContent === "0")) {
+            display.textContent = display.textContent.slice(0, -1);
+            if (display.textContent === '') display.textContent = "0";
+            secondOperand = +display.textContent;
+        }
+    }
 })
